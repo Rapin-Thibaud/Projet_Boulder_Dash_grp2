@@ -1,2 +1,3 @@
-# Projet_Boulder_Dash_grp2
-Projet POO 1ere année Semestre 2
+# JPU-BlankProject
+
+Base de démarrage pour le projet Jave/POO/UML des 1ières années Exia-Cesi
