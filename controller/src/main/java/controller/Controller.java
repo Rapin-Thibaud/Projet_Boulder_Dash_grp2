@@ -11,9 +11,10 @@ import contract.IView;
 public final class Controller implements IController {
 
 	/** The view. */
-	private IView		view;
+	private IView view;
 
 	/** The model. */
+	@SuppressWarnings("unused")
 	private IModel	model;
 
 	/**
@@ -38,7 +39,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+		this.view.printMessage("Appuyez sur les touches '↑', '↓', '→' ou '←' pour se déplacer et ramassez assez de diamants pour finir le niveau.");
 	}
 
 	/**
@@ -74,17 +75,13 @@ public final class Controller implements IController {
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
-			case English:
-				this.model.loadHelloWorld("GB");
+			case UP:
 				break;
-			case Francais:
-				this.model.loadHelloWorld("FR");
+			case DOWN:
 				break;
-			case Deutsch:
-				this.model.loadHelloWorld("DE");
+			case RIGHT:
 				break;
-			case Indonesia:
-				this.model.loadHelloWorld("ID");
+			case LEFT:
 				break;
 			default:
 				break;
