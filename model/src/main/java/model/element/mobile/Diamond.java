@@ -6,6 +6,6 @@ public class Diamond {
     private static final Sprite sprite = new Sprite();
 
     public Diamond() {
-
+// jbpiub
     }
 }
