@@ -39,7 +39,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyez sur les touches '↑', '↓', '→' ou '←' pour se déplacer et ramassez assez de diamants pour finir le niveau.");
+		this.view.printMap("Appuyez sur les touches '↑', '↓', '→' ou '←' pour se déplacer et ramassez assez de diamants pour finir le niveau.");
 	}
 
 	/**
