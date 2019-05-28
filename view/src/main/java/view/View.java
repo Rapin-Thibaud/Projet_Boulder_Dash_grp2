@@ -41,6 +41,7 @@ public final class View implements IView, Runnable {
     /** The frame. */
     private final ViewFrame viewFrame;
 
+
     /**
      * Instantiates a new view.
      *
@@ -51,6 +52,8 @@ public final class View implements IView, Runnable {
         this.viewFrame = new ViewFrame(model);
         SwingUtilities.invokeLater(this);
     }
+
+ 
 
     /*
      * (non-Javadoc)
