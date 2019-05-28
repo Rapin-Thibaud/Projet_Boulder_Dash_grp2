@@ -83,7 +83,7 @@ public final class Controller implements IController {
 			case RIGHT:
 				break;
 			case LEFT:
- first
+ 
 				break;
 			default:
 				break;
