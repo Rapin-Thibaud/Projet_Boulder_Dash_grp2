@@ -2,6 +2,8 @@ package contract;
 
 import java.util.ArrayList;
 
+import entity.FillingMap;
+
 /**
  * The Interface IView.
  *
@@ -14,5 +16,5 @@ public interface IView {
 	 *
 	 * @param map the message
 	 */
-	void printMap(ArrayList<object> map);
+	void printMap(ArrayList<FillingMap> toto);
 }

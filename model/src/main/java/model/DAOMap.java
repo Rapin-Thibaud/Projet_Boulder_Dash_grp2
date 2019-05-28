@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import entity.FillingMap;
 import entity.Map;
 
 /**
@@ -21,7 +22,7 @@ class DAOMap extends DAOEntity<Map> {
 	/*
 	 * (non-Javadoc)
 	 *
-	 * @see model.DAOEntity#create(model.Entity)
+	 * @see model.DAOEntity#ceate(model.Entity)
 	 */
 	@Override
 	public boolean create(final Map entity) {
@@ -47,7 +48,7 @@ class DAOMap extends DAOEntity<Map> {
 	 */
 	@Override
 	public Map find(final int id) {
-		Map map = new Map();
+		final Map map = new Map();
 
 		try {
 			final String sql = "{call mapX(?)}";
@@ -56,32 +57,9 @@ class DAOMap extends DAOEntity<Map> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
-				map = new Map(id, resultSet.getString("code"), resultSet.getString("message"));
-			}
-			return map;
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see model.DAOEntity#find(java.lang.String)
-	 */
-	@Override
-	public Map find(final String code) {
-		Map map = new Map();
-
-		try {
-			final String sql = "{call helloworldByCode(?)}";
-			final CallableStatement call = this.getConnection().prepareCall(sql);
-			call.setString(1, code);
-			call.execute();
-			final ResultSet resultSet = call.getResultSet();
-			if (resultSet.first()) {
-				map = new Map(resultSet.getInt("id"), code, resultSet.getString("message"));
+				final FillingMap f = new FillingMap(resultSet.getInt("ID_type_elements"), resultSet.getInt("X"),
+				        resultSet.getInt("Y"));
+				map.fillToto(f);
 			}
 			return map;
 		} catch (final SQLException e) {
@@ -99,6 +77,12 @@ class DAOMap extends DAOEntity<Map> {
 	public boolean update(final Map entity) {
 		// Not implemented
 		return false;
+	}
+
+	@Override
+	public Map find(final String label) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

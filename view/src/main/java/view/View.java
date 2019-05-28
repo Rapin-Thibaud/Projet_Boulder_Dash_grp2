@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
 import javax.swing.SwingUtilities;
 
@@ -8,6 +9,7 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import entity.FillingMap;
 
 /**
  * The Class View.
@@ -22,8 +24,7 @@ public final class View implements IView, Runnable {
 	/**
 	 * Instantiates a new view.
 	 *
-	 * @param model
-	 *          the model
+	 * @param model the model
 	 */
 	public View(final IModel model) {
 		this.viewFrame = new ViewFrame(model);
@@ -33,22 +34,21 @@ public final class View implements IView, Runnable {
 	/**
 	 * Key code to controller order.
 	 *
-	 * @param keyCode
-	 *          the key code
+	 * @param keyCode the key code
 	 * @return the controller order
 	 */
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
-			case KeyEvent.VK_UP:
-				return ControllerOrder.UP;
-			case KeyEvent.VK_DOWN:
-				return ControllerOrder.DOWN;
-			case KeyEvent.VK_RIGHT:
-				return ControllerOrder.RIGHT;
-			case KeyEvent.VK_LEFT:
-				return ControllerOrder.LEFT;
-			default:
-				return ControllerOrder.NOTHING;
+		case KeyEvent.VK_UP:
+			return ControllerOrder.UP;
+		case KeyEvent.VK_DOWN:
+			return ControllerOrder.DOWN;
+		case KeyEvent.VK_RIGHT:
+			return ControllerOrder.RIGHT;
+		case KeyEvent.VK_LEFT:
+			return ControllerOrder.LEFT;
+		default:
+			return ControllerOrder.NOTHING;
 		}
 	}
 
@@ -66,6 +66,7 @@ public final class View implements IView, Runnable {
 	 *
 	 * @see java.lang.Runnable#run()
 	 */
+	@Override
 	public void run() {
 		this.viewFrame.setVisible(true);
 	}
@@ -73,11 +74,15 @@ public final class View implements IView, Runnable {
 	/**
 	 * Sets the controller.
 	 *
-	 * @param controller
-	 *          the new controller
+	 * @param controller the new controller
 	 */
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
 	}
-}
 
+	@Override
+	public void printMap(final ArrayList<FillingMap> toto) {
+		// TODO Auto-generated method stub
+
+	}
+}
