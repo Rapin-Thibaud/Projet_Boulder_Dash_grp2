@@ -1,5 +1,7 @@
 package contract;
 
+import java.util.ArrayList;
+
 /**
  * The Interface IView.
  *
@@ -10,8 +12,7 @@ public interface IView {
 	/**
 	 * Prints the message.
 	 *
-	 * @param message
-	 *          the message
+	 * @param map the message
 	 */
-	void printMessage(final String message);
+	void printMap(ArrayList<object> map);
 }
