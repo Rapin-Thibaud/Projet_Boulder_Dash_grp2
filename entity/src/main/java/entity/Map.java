@@ -7,7 +7,10 @@ public class Map {
 	private int height;
 
 	public Map(final int id, final String label, final int width, final int height) {
-
+		this.setId(id);
+		this.setLabel(label);
+		this.setWidth(width);
+		this.setHeight(height);
 	}
 
 	public Map() {
