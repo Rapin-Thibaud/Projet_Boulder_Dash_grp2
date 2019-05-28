@@ -75,6 +75,7 @@ public final class Controller implements IController {
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
+
 			case UP:
 				break;
 			case DOWN:
@@ -82,6 +83,7 @@ public final class Controller implements IController {
 			case RIGHT:
 				break;
 			case LEFT:
+ first
 				break;
 			default:
 				break;
