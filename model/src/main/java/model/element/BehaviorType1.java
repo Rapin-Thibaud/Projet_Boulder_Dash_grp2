@@ -1,6 +1,6 @@
 package model.element;
 
-public class BehaviorType1 {
+public class BehaviorType1 extends Behavior{
     public void toDie() {
 
     }
