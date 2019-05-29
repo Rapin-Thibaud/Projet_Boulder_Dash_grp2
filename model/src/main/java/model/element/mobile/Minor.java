@@ -6,6 +6,10 @@ import model.element.Sprite;
 public class Minor extends BehaviorType1{
     private static final Sprite sprite = new Sprite();
     private int x, y;
+    
+    public static boolean getAlive() {
+    	return true;
+    }
 
     public Minor() {
         this.toMove();
