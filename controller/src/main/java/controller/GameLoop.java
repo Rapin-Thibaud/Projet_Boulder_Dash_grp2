@@ -1,5 +1,6 @@
 package controller;
 
+import model.element.Behavior;
 import model.element.mobile.Minor;
 
 public class GameLoop {
@@ -22,7 +23,7 @@ public class GameLoop {
 
 	private static void doGameUpdates() {
 		 if (Minor.getAlive() == true){
-	            Mobile.move();
+	            Behavior.toMove();
 	        }else {
 	            setIsRunning(false);
 	        }		
