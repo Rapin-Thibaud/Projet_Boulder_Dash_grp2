@@ -1,30 +1,28 @@
 package model.element.mobile;
 
-import model.Model;
-
 public class MobileFactory {
-    private final Minor   minor   = new Minor();
-    private final Rocks   rocks   = new Rocks();
-    private final Ennemy  ennemy  = new Ennemy();
-    private final Diamond diamond = new Diamond();
+	private final Minor   minor   = new Minor();
+	private final Rocks   rocks   = new Rocks();
+	private final Ennemy  ennemy  = new Ennemy();
+	private final Diamond diamond = new Diamond();
 
-    public Model createDiamond() {
-        return null;
+	public Mobile createDiamond() {
+		return this.diamond;
 
-    }
+	}
 
-    public Model createEnnemy() {
-        return null;
+	public Mobile createEnnemy() {
+		return this.ennemy;
 
-    }
+	}
 
-    public Model createMinor() {
-        return null;
+	public Mobile createMinor() {
+		return this.minor;
 
-    }
+	}
 
-    public Model createRocks() {
-        return null;
+	public Mobile createRocks() {
+		return this.rocks;
 
-    }
+	}
 }

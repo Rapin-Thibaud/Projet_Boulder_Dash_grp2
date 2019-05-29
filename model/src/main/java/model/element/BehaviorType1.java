@@ -1,15 +1,18 @@
 package model.element;
 
 public class BehaviorType1 {
-    public void toDie() {
+	public void toDie() {
+		final quand x et final y même coor
+	}
 
-    }
+	public void toExplode() {
+		final supp sprite
+	}
 
-    public void toExplode() {
+	public void toMove() {
+		final coor qi change
+	}
+	public void getBehaviorType1(){
 
-    }
-
-    public void toMove() {
-
-    }
+	}
 }

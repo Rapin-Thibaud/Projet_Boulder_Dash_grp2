@@ -53,6 +53,7 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
+	@Override
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
