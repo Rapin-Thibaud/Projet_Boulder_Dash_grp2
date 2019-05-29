@@ -10,8 +10,6 @@ public class Rocks extends Mobile {
 
 	Rocks(final int x, final int y){
 		super(x,y, sprite, Permability.BLOCKING);
-		this.setY(x);
-		this.setY(y);
 	}
 
 	public void toMoveRock() {
@@ -20,8 +18,23 @@ public class Rocks extends Mobile {
 		}
 	}
 
-	public Rocks() {
-		this.toFall();
-		this.toFallAndKill();
+	@Override
+	public void toFallDown() {
+		super.toFallDown();
+	}
+
+	@Override
+	public void toFallDownLeft() {
+		super.toFallDownLeft();
+	}
+
+	@Override
+	public void toFallDownRight() {
+		super.toFallDownRight();
+	}
+	@Override
+	public Permability getPermeability() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
