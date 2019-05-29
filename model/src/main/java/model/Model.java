@@ -43,7 +43,7 @@ public final class Model extends Observable implements IModel {
      * @param map
      *            the new hello world
      */
-	private void setHelloWorld(final Map map) {
+	private void setMap(final Map map) {
 		this.map = map;
 		this.setChanged();
 		this.notifyObservers();
@@ -62,8 +62,8 @@ public final class Model extends Observable implements IModel {
 	 */
 	public void loadObject(final String code) {
 		try {
-			final DAOMap daoHelloWorld = new DAOMap(DBConnection.getInstance().getConnection());
-			this.setHelloWorld(daoHelloWorld.find(code));
+			final DAOMap daomap = new DAOMap(DBConnection.getInstance().getConnection());
+			this.setMap(daomap.find(code));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}

@@ -1,15 +1,14 @@
 package model.element.mobile;
 
-import contract.IMobile;
 import model.element.Permability;
 import model.element.Sprite;
 
-public class Mobile implements IMobile {
+abstract class Mobile {
     public Mobile(final Sprite sprite, final Permability permability) {
 
     }
 
-    public void getBehavior() {
+    public void getBehavior(final int i) {
 
     }
 

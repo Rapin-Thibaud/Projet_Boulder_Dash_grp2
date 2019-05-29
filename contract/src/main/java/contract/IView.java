@@ -11,10 +11,14 @@ import entity.FillingMap;
  */
 public interface IView {
 
-	/**
-	 * Prints the message.
-	 *
-	 * @param map the message
-	 */
-	void printMap(ArrayList<FillingMap> toto);
+    void printMap(ArrayList<FillingMap> toto);
+
+    /**
+     * Prints the message.
+     *
+     * @param map
+     *            the message
+     */
+    void printMap(String string);
+
 }
