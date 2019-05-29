@@ -1,10 +1,9 @@
-
 package entity;
 
 import java.util.ArrayList;
 
 public class Map extends Entity {
-	private String label;
+	private int id;
 	private int width;
 	private int height;
 	private final ArrayList<FillingMap> toto;
@@ -21,12 +20,12 @@ public class Map extends Entity {
 		this.toto = new ArrayList<FillingMap>();
 	}
 
-	public String getLabel() {
-		return this.label;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setLabel(final String label) {
-		this.label = label;
+	public void setId(final int id) {
+		this.id = id;
 	}
 
 	public int getWidth() {

@@ -57,8 +57,8 @@ class DAOMap extends DAOEntity<Map> {
 			call.execute();
 			final ResultSet resultSet = call.getResultSet();
 			if (resultSet.first()) {
-				final FillingMap f = new FillingMap(resultSet.getInt("ID_type_elements"), resultSet.getInt("X"),
-				        resultSet.getInt("Y"));
+				final FillingMap f = new FillingMap(resultSet.getInt("ID_type_elements"),
+				        resultSet.getString("Element_Char"), resultSet.getInt("X"), resultSet.getInt("Y"));
 				map.fillToto(f);
 			}
 			return map;

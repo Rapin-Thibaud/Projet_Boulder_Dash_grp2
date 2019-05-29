@@ -24,61 +24,62 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Gets the hello world.
-     *
-     * @return the hello world
-     */
+	 * Gets the hello world.
+	 *
+	 * @return the hello world
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IModel#getMessage()
 	 */
+	@Override
 	public Map getMap() {
 		return this.map;
 	}
 
 	/**
-     * Sets the hello world.
-     *
-     * @param map
-     *            the new hello world
-     */
-	private void setHelloWorld(final Map map) {
+	 * Sets the hello world.
+	 *
+	 * @param map the new hello world
+	 */
+	private void setMap(final Map map) {
 		this.map = map;
 		this.setChanged();
 		this.notifyObservers();
 	}
 
 	/**
-     * Load hello world.
-     *
-     * @param code
-     *            the code
-     */
+	 * Load hello world.
+	 *
+	 * @param code the code
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadObject(final String code) {
+	@Override
+	public void loadObject(final String id) {
 		try {
-			final DAOMap daoHelloWorld = new DAOMap(DBConnection.getInstance().getConnection());
-			this.setHelloWorld(daoHelloWorld.find(code));
+			final DAOMap daoMap = new DAOMap(DBConnection.getInstance().getConnection());
+			this.setMap(daoMap.find(id));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	/**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
+	 * Gets the observable.
+	 *
+	 * @return the observable
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IModel#getObservable()
 	 */
+	@Override
 	public Observable getObservable() {
 		return this;
 	}

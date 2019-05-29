@@ -15,15 +15,13 @@ public final class Controller implements IController {
 
 	/** The model. */
 	@SuppressWarnings("unused")
-	private IModel	model;
+	private IModel model;
 
 	/**
 	 * Instantiates a new controller.
 	 *
-	 * @param view
-	 *          the view
-	 * @param model
-	 *          the model
+	 * @param view  the view
+	 * @param model the model
 	 */
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
@@ -31,23 +29,24 @@ public final class Controller implements IController {
 	}
 
 	/**
-     * Control.
-     */
+	 * Control.
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IController#control()
 	 */
+	@Override
 	public void control() {
-		this.view.printMap("Appuyez sur les touches '↑', '↓', '→' ou '←' pour se déplacer et ramassez assez de diamants pour finir le niveau.");
+		this.view.printMap(
+		        "Appuyez sur les touches '↑', '↓', '→' ou '←' pour se déplacer et ramassez assez de diamants pour finir le niveau.");
 	}
 
 	/**
-     * Sets the view.
-     *
-     * @param pview
-     *            the new view
-     */
+	 * Sets the view.
+	 *
+	 * @param pview the new view
+	 */
 	private void setView(final IView pview) {
 		this.view = pview;
 	}
@@ -55,38 +54,37 @@ public final class Controller implements IController {
 	/**
 	 * Sets the model.
 	 *
-	 * @param model
-	 *          the new model
+	 * @param model the new model
 	 */
 	private void setModel(final IModel model) {
 		this.model = model;
 	}
 
 	/**
-     * Order perform.
-     *
-     * @param controllerOrder
-     *            the controller order
-     */
+	 * Order perform.
+	 *
+	 * @param controllerOrder the controller order
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
+	@Override
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 
-			case UP:
-				break;
-			case DOWN:
-				break;
-			case RIGHT:
-				break;
-			case LEFT:
- 
-				break;
-			default:
-				break;
+		case UP:
+			break;
+		case DOWN:
+			break;
+		case RIGHT:
+			break;
+		case LEFT:
+
+			break;
+		default:
+			break;
 		}
 	}
 
