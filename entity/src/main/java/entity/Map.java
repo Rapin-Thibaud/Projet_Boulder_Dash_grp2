@@ -47,4 +47,9 @@ public class Map extends Entity {
 	public void setHeight(final int height) {
 		this.height = height;
 	}
+
+	public String getMessage() {
+		return null;
+	}
+
 }
