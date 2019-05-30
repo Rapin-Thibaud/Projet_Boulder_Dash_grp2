@@ -2,8 +2,10 @@ package model;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import entity.Entity;
+import entity.Position;
 
 /**
  * The Class DAOEntity.
@@ -11,77 +13,77 @@ import entity.Entity;
  * @author Jean-Aymeric Diet
  *
  * @param <E>
- *          the element type
+ *            the element type
  */
 abstract class DAOEntity<E extends Entity> {
 
-	/** The connection. */
-	private final Connection connection;
+    /** The connection. */
+    private final Connection connection;
 
-	/**
-	 * Instantiates a new DAO entity.
-	 *
-	 * @param connection
-	 *          the connection
-	 * @throws SQLException
-	 *           the SQL exception
-	 */
-	public DAOEntity(final Connection connection) throws SQLException {
-		this.connection = connection;
-	}
+    /**
+     * Instantiates a new DAO entity.
+     *
+     * @param connection
+     *            the connection
+     * @throws SQLException
+     *             the SQL exception
+     */
+    public DAOEntity(final Connection connection) throws SQLException {
+        this.connection = connection;
+    }
 
-	/**
-	 * Gets the connection.
-	 *
-	 * @return the connection
-	 */
-	protected Connection getConnection() {
-		return this.connection;
-	}
+    /**
+     * Creates the.
+     *
+     * @param entity
+     *            the entity
+     * @return true, if successful
+     */
+    public abstract boolean create(E entity);
 
-	/**
-	 * Creates the.
-	 *
-	 * @param entity
-	 *          the entity
-	 * @return true, if successful
-	 */
-	public abstract boolean create(E entity);
+    /**
+     * Delete.
+     *
+     * @param entity
+     *            the entity
+     * @return true, if successful
+     */
+    public abstract boolean delete(E entity);
 
-	/**
-	 * Delete.
-	 *
-	 * @param entity
-	 *          the entity
-	 * @return true, if successful
-	 */
-	public abstract boolean delete(E entity);
+    /**
+     * Find.
+     *
+     * @param id
+     *            the id
+     * @return the e
+     */
+    public abstract ArrayList<Position> find(int id);
 
-	/**
-	 * Update.
-	 *
-	 * @param entity
-	 *          the entity
-	 * @return true, if successful
-	 */
-	public abstract boolean update(E entity);
+    /**
+     * Find.
+     *
+     * @param label
+     *            the code
+     * @return the e
+     */
+    public abstract E find(String label);
 
-	/**
-	 * Find.
-	 *
-	 * @param id
-	 *          the id
-	 * @return the e
-	 */
-	public abstract E find(int id);
+    /**
+     * Gets the connection.
+     *
+     * @return the connection
+     */
+    protected Connection getConnection() {
+        return this.connection;
+    }
 
-	/**
-	 * Find.
-	 *
-	 * @param label
-	 *          the code
-	 * @return the e
-	 */
-	public abstract E find(String label);
+    /**
+     * Update.
+     *
+     * @param entity
+     *            the entity
+     * @return true, if successful
+     */
+    public abstract boolean update(E entity);
 
 }

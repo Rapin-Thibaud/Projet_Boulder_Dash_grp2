@@ -1,20 +1,23 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.Observable;
+
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import entity.Position;
 
 /**
  * The Class Controller.
  */
-public final class Controller implements IController {
+public final class Controller implements IController, IModel {
 
     /** The view. */
     private IView  view;
 
     /** The model. */
-    @SuppressWarnings("unused")
     private IModel model;
 
     /**
@@ -44,6 +47,30 @@ public final class Controller implements IController {
                 "Appuyez sur les touches '↑', '↓', '→' ou '←' pour se déplacer et ramassez assez de diamants pour finir le niveau.");
     }
 
+    @Override
+    public int getElementOnTheMap(final int x, final int y) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public ArrayList<Position> getMap() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public Observable getObservable() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void loadMap(final int id) {
+        // TODO Auto-generated method stub
+
+    }
+
     /**
      * Order perform.
      *
@@ -58,7 +85,6 @@ public final class Controller implements IController {
     @Override
     public void orderPerform(final ControllerOrder controllerOrder) {
         switch (controllerOrder) {
-
         case UP:
             break;
         case DOWN:
@@ -66,9 +92,12 @@ public final class Controller implements IController {
         case RIGHT:
             break;
         case LEFT:
-
+            break;
+        case NOTHING:
+            this.model.loadMap(1);
             break;
         default:
+            this.model.loadMap(1);
             break;
         }
     }

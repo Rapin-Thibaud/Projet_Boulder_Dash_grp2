@@ -1,6 +1,9 @@
 package contract;
 
+import java.util.ArrayList;
 import java.util.Observable;
+
+import entity.Position;
 
 /**
  * The Interface IModel.
@@ -9,12 +12,14 @@ import java.util.Observable;
  */
 public interface IModel {
 
+    int getElementOnTheMap(int x, int y);
+
     /**
      * Gets the hello world.
      *
      * @return the helloworld entity
      */
-    String getMap();
+    ArrayList<Position> getMap();
 
     /**
      * Gets the observable.
@@ -29,5 +34,5 @@ public interface IModel {
      * @param elementChar
      *            the code
      */
-    void loadObject(String elementChar);
+    void loadMap(final int id);
 }

@@ -8,7 +8,7 @@ abstract class Mobile {
 
     }
 
-    public void getBehavior(final int i) {
+    public void getBehavior() {
 
     }
 

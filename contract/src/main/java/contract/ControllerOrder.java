@@ -7,14 +7,14 @@ package contract;
  */
 public enum ControllerOrder {
 
-	/** up order*/
-	UP,
-	/** down order */
-	DOWN,
-	/** right order */
-	RIGHT,
-	/** left order */
-	LEFT,
-	/** nothing order */
-	NOTHING
+    /** up order */
+    UP,
+    /** down order */
+    DOWN,
+    /** right order */
+    RIGHT,
+    /** left order */
+    LEFT,
+    /** nothing order */
+    NOTHING
 }
