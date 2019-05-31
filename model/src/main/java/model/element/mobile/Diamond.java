@@ -3,7 +3,7 @@ package model.element.mobile;
 import model.element.Sprite;
 
 public class Diamond {
-    private static final Sprite sprite = new Sprite();
+    private static final Sprite sprite = new Sprite('4', "diamond.png");
 
     public Diamond() {
 
