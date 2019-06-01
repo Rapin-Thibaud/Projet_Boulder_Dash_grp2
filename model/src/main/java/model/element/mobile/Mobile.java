@@ -4,6 +4,7 @@ import model.element.Permability;
 import model.element.Sprite;
 
 abstract class Mobile {
+
     public Mobile(final Sprite sprite, final Permability permability) {
 
     }

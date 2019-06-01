@@ -14,14 +14,9 @@ import entity.Position;
  */
 public final class Model extends Observable implements IModel {
 
-    /** The helloWorld. */
-
     private ArrayList<Position> map;
     private final int[][]       onTheMap;
 
-    /**
-     * Instantiates a new model.
-     */
     public Model() {
         this.map = new ArrayList<Position>();
         this.onTheMap = new int[27][24];
@@ -32,31 +27,11 @@ public final class Model extends Observable implements IModel {
         return this.onTheMap[x][y];
     }
 
-    /**
-     * Gets the hello world.
-     *
-     * @return the hello world
-     */
-    /*
-     * (non-Javadoc)
-     *
-     * @see contract.IModel#getMessage()
-     */
     @Override
     public ArrayList<Position> getMap() {
         return this.map;
     }
 
-    /**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
-    /*
-     * (non-Javadoc)
-     *
-     * @see contract.IModel#getObservable()
-     */
     @Override
     public Observable getObservable() {
         return this;
@@ -66,17 +41,6 @@ public final class Model extends Observable implements IModel {
         return this.onTheMap;
     }
 
-    /**
-     * Load hello world.
-     *
-     * @param code
-     *            the code
-     */
-    /*
-     * (non-Javadoc)
-     *
-     * @see contract.IModel#getMessage(java.lang.String)
-     */
     @Override
     public void loadMap(final int id) {
         try {
@@ -88,12 +52,6 @@ public final class Model extends Observable implements IModel {
         }
     }
 
-    /**
-     * Sets the hello world.
-     *
-     * @param map
-     *            the new hello world
-     */
     private void setMap(final ArrayList<Position> map) {
         this.map = map;
     }
@@ -105,4 +63,5 @@ public final class Model extends Observable implements IModel {
         this.setChanged();
         this.notifyObservers();
     }
+
 }

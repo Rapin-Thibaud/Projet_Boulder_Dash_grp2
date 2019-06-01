@@ -7,12 +7,6 @@ package contract;
  */
 public interface IView {
 
-    /**
-     * Prints the message.
-     *
-     * @param map
-     *            the message
-     */
-    void printMap(String string);
+    void printMessage(String message);
 
 }

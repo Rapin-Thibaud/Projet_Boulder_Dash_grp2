@@ -11,22 +11,13 @@ import entity.Position;
  * @author Jean-Aymeric Diet
  */
 public interface IModel {
-
     int getElementOnTheMap(int x, int y);
 
-    /**
-     * Gets the hello world.
-     *
-     * @return the helloworld entity
-     */
     ArrayList<Position> getMap();
 
-    /**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
     Observable getObservable();
+
+    int[][] getOnTheMap();
 
     /**
      * Load the message.
