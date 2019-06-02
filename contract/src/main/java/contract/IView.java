@@ -7,12 +7,15 @@ import java.util.ArrayList;
  *
  * @author Jean-Aymeric Diet
  */
+@SuppressWarnings("unused")
 public interface IView {
+
+	void printMap(String string);
 
 	/**
 	 * Prints the message.
 	 *
 	 * @param map the message
 	 */
-	void printMap(ArrayList<object> map);
+	//void printMap(ArrayList<object> map);
 }

@@ -4,11 +4,16 @@ import model.element.BehaviorType1;
 import model.element.Sprite;
 
 public class Ennemy extends BehaviorType1{
-    private static final Sprite sprite = new Sprite();
+    @SuppressWarnings("unused")
+	private static final Sprite sprite = new Sprite();
     private int x, y;
+    
+    public void toMoveEnnemy() {
+    	
+    }
 
     public Ennemy() {
-        this.toMove();
+    	this.toMoveEnnemy();
         this.toExplode();
         this.toDie();
     }

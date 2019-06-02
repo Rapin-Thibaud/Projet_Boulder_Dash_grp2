@@ -12,5 +12,5 @@ public class Mobile implements IMobile {
     public void getBehavior() {
 
     }
-
+  
 }

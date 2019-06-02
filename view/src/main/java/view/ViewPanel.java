@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -27,6 +29,14 @@ class ViewPanel extends JPanel implements Observer {
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
+		
+	}
+	
+	public static JPanel drawGamePanel() {
+		JPanel gamePanel = new JPanel();
+		Image background = Toolkit.getDefaultToolkit().createImage("Background.png");
+		gamePanel.drawImage(background, 0, 0, null);
+		return gamePanel;
 	}
 
 	/**

@@ -1,18 +1,45 @@
 package model.element.mobile;
 
+import java.awt.event.KeyEvent;
+
 import model.element.BehaviorType1;
 import model.element.Sprite;
 
 public class Minor extends BehaviorType1{
-    private static final Sprite sprite = new Sprite();
+   
+	@SuppressWarnings("unused")
+	private static final Sprite sprite = new Sprite();
     private int x, y;
+    
+     Minor(final int x, final int y){
+        this.setX(x);
+        this.setY(y);
+    }
+     
+    public void toMove() {
+    	
+    	  switch (event.KeyPressed) {
+    	  case KeyEvent.VK_UP:
+    	    this.setY(y-1); 
+    	    break;
+    	  case KeyEvent.VK_DOWN:
+    	    this.setY(y+1); 
+    	    break;
+    	  case KeyEvent.VK_LEFT:
+    	    this.setX(x-1); 
+    	    break;
+    	  case KeyEvent.VK_RIGHT:
+    	    this.setX(x+1);
+    	    break;
+    	  
+    	}
+    }
     
     public static boolean getAlive() {
     	return true;
     }
 
     public Minor() {
-        this.toMove();
         this.toExplode();
         this.toDie();
     }
@@ -24,10 +51,7 @@ public class Minor extends BehaviorType1{
 
     }
 
-    Minor(final int x, final int y){
-        this.setX(x);
-        this.setY(y);
-    }
+   
     public int getX() {
         return this.x;
     }

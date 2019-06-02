@@ -9,7 +9,5 @@ public class BehaviorType1 extends Behavior{
 
     }
 
-    public void toMove() {
-
-    }
+   
 }
