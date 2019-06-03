@@ -16,7 +16,10 @@ public interface IModel {
 	 *
 	 * @return the helloworld entity
 	 */
-	Map getMap();
+	static Map getMap() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	/**
 	 * Load the message.

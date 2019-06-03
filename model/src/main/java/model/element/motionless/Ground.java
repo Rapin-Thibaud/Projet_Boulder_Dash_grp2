@@ -3,9 +3,11 @@ package model.element.motionless;
 import model.element.Sprite;
 
 public class Ground {
-    private static final Sprite sprite = new Sprite();
+    @SuppressWarnings("unused")
+	private static final Sprite sprite = new Sprite();
+    
 
-    public Ground() {
+    public Ground(Motionless motionLess,int x,int y) {
 
     }
     
