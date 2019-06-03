@@ -1,11 +1,12 @@
 package model.element.motionless;
 
 import contract.IMotionless;
-import model.element.Permability;
-import model.element.Sprite;
+import contract.ISprite;
+import contract.Permability;
+import model.element.Element;
 
-public class Motionless implements IMotionless {
-    public Motionless(final Sprite sprite, final Permability permability) {
-
-    }
+public class Motionless extends Element implements IMotionless {
+	public Motionless(final ISprite sprite, final Permability permability) {
+		super(sprite, permability);
+	}
 }

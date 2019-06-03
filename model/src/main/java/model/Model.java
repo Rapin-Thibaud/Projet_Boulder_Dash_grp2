@@ -4,8 +4,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import contract.IElement;
 import contract.IModel;
 import entity.Position;
+import model.element.ElementFactory;
+
 
 /**
  * The Class Model.
@@ -14,54 +17,62 @@ import entity.Position;
  */
 public final class Model extends Observable implements IModel {
 
-    private ArrayList<Position> map;
-    private final int[][]       onTheMap;
+	private final ArrayList<Position> map;
+	private final ArrayList<ArrayList<IElement>> maping;
 
-    public Model() {
-        this.map = new ArrayList<Position>();
-        this.onTheMap = new int[27][24];
-    }
+	public Model() {
+		this.map = new ArrayList<Position>();
+		this.maping = new ArrayList<ArrayList<IElement>>();
+	}
 
-    @Override
-    public int getElementOnTheMap(final int x, final int y) {
-        return this.onTheMap[x][y];
-    }
 
-    @Override
-    public ArrayList<Position> getMap() {
-        return this.map;
-    }
+	@Override
+	public Observable getObservable() {
+		return this;
+	}
 
-    @Override
-    public Observable getObservable() {
-        return this;
-    }
 
-    public int[][] getOnTheMap() {
-        return this.onTheMap;
-    }
+	@Override
+	public void loadMap(final int id) {
+		try {
+			final DAOPosition Position = new DAOPosition(DBConnection.getInstance().getConnection());
+			this.setMaping(Position.find(id));
+		} catch (final SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
-    @Override
-    public void loadMap(final int id) {
-        try {
-            final DAOPosition Position = new DAOPosition(DBConnection.getInstance().getConnection());
-            this.setMap(Position.find(id));
-            this.setOnTheMap(this.getMap());
-        } catch (final SQLException e) {
-            e.printStackTrace();
-        }
-    }
+	@Override
+	public ArrayList<ArrayList<IElement>> getMaping() {
+		return this.maping;
+	}
 
-    private void setMap(final ArrayList<Position> map) {
-        this.map = map;
-    }
+	public void setMaping(final ArrayList<Position> map) {
+		this.maping.clear();
+		final int[][] onTheMap = new int[28][24];
+		for (final Position t : map) {
+			onTheMap[t.getX()][t.getY()] = t.getid();
+		}
+		for (int x = 0 ; x < 28; x++) {
+			final ArrayList<IElement> ligne = new ArrayList<IElement>();
+			for ( int y = 0; y < 23; y ++) {
+				ligne.add(y, ElementFactory.createElement(onTheMap[x][y]));
+			}
+			this.maping.add(x,ligne);
+		}
+		for(int x = 0 ; x < this.getMaping().size(); x++ ) {
+			for (int y = 0 ; y < this.getMaping().get(x).size(); y++) {
+				System.out.print(this.getMapingElement(x, y)+ " ");
+			}
+			System.out.println();
+		}
+		this.setChanged();
+		this.notifyObservers();
+	}
 
-    public void setOnTheMap(final ArrayList<Position> map) {
-        for (final Position t : map) {
-            this.onTheMap[t.getX()][t.getY()] = t.getid();
-        }
-        this.setChanged();
-        this.notifyObservers();
-    }
+	@Override
+	public IElement getMapingElement(final int x, final int y) {
+		return this.maping.get(x).get(y);
+	}
 
 }

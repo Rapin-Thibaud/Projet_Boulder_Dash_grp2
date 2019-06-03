@@ -41,5 +41,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="/Code ressource_src"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

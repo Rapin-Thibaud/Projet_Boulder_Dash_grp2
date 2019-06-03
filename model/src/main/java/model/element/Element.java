@@ -1,11 +1,15 @@
 package model.element;
 
+import contract.IElement;
+import contract.ISprite;
+import contract.Permability;
+
 public abstract class Element implements IElement {
 
-    private Sprite      sprite;
+    private ISprite      sprite;
     private Permability permability;
 
-    public Element(final Sprite sprite, final Permability permability) {
+    public Element(final ISprite sprite, final Permability permability) {
         this.setSprite(sprite);
         this.setPermability(permability);
     }
@@ -16,7 +20,7 @@ public abstract class Element implements IElement {
     }
 
     @Override
-    public Sprite getSprite() {
+    public ISprite getSprite() {
         return this.sprite;
     }
 
@@ -24,7 +28,7 @@ public abstract class Element implements IElement {
         this.permability = permability;
     }
 
-    public void setSprite(final Sprite sprite) {
+    public void setSprite(final ISprite sprite) {
         this.sprite = sprite;
     }
 

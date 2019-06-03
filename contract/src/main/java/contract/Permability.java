@@ -1,4 +1,4 @@
-package model.element;
+package contract;
 
 public enum Permability {
     /** The blocking. */

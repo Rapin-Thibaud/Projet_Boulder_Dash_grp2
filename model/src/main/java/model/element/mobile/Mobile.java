@@ -1,16 +1,13 @@
 package model.element.mobile;
 
-import model.element.Permability;
-import model.element.Sprite;
+import contract.ISprite;
+import contract.Permability;
+import model.element.Element;
 
-abstract class Mobile {
+abstract class Mobile extends Element {
 
-    public Mobile(final Sprite sprite, final Permability permability) {
-
-    }
-
-    public void getBehavior() {
-
-    }
+	public Mobile(final ISprite sprite, final Permability permability) {
+		super(sprite, permability);
+	}
 
 }

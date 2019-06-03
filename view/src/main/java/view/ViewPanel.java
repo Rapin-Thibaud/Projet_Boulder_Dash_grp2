@@ -1,79 +1,71 @@
 package view;
 
 import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-/**
- * The Class ViewPanel.
- *
- * @author Jean-Aymeric Diet
- */
+import contract.IElement;
+import contract.IModel;
+
 class ViewPanel extends JPanel implements Observer {
+	private ViewFrame                    viewFrame;
 
-    /** The Constant serialVersionUID. */
-    private static final long serialVersionUID = -998294702363713521L;
-    /** The view frame. */
-    private ViewFrame         viewFrame;
+	private Image image = null;
 
-    /**
-     * Instantiates a new view panel.
-     *
-     * @param viewFrame
-     *            the view frame
-     */
-    public ViewPanel(final ViewFrame viewFrame) {
-        this.setViewFrame(viewFrame);
-        viewFrame.getModel().getObservable().addObserver(this);
-    }
+	private static final long    serialVersionUID    = -998294702363713521L;
 
-    /**
-     * Gets the view frame.
-     *
-     * @return the view frame
-     */
-    private ViewFrame getViewFrame() {
-        return this.viewFrame;
-    }
+	public ViewPanel(final ViewFrame viewFrame) {
+		this.setViewFrame(viewFrame);
+		viewFrame.getModel().getObservable().addObserver(this);
+		try {
+			this.image = ImageIO.read( new File("D:/Thomas Rapin/git/Projet_Boulder_Dash_grp2/model/SpritesCustom/wallblock.png"));
+		} catch (final IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
-     */
-    @Override
-    protected void paintComponent(final Graphics graphics) {
-        graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-        // graphics.drawString(this.getViewFrame().getModel().getMap().getMessage(),
-        // 10, 20);
-        for (int x = 1; x < 26; x++) {
-            for (int y = 1; y < 23; y++) {
-                System.out.print(String.valueOf(this.getViewFrame().getModel().getElementOnTheMap(x, y)));
-            }
-            System.out.println("");
-        }
-        System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-    }
+	private ViewFrame getViewFrame() {
+		return this.viewFrame;
+	}
 
-    /**
-     * Sets the view frame.
-     *
-     * @param viewFrame
-     *            the new view frame
-     */
-    private void setViewFrame(final ViewFrame viewFrame) {
-        this.viewFrame = viewFrame;
-    }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-     */
-    @Override
-    public void update(final Observable arg0, final Object arg1) {
-        this.repaint();
-    }
+	private void setViewFrame(final ViewFrame viewFrame) {
+		this.viewFrame = viewFrame;
+	}
+
+	@Override
+	public void update(final Observable arg0, final Object arg1) {
+		this.repaint();
+	}
+
+	@Override
+	protected void paintComponent(final Graphics graphics) {
+		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+		// graphics.drawString(this.getViewFrame().getModel().getMap().getMessage(),10, 20);
+
+		final IModel model = this.getViewFrame().getModel();
+
+		for (int x = 0; x < (model.getMaping().size()); x++) {
+			for (int y = 0; y < (model.getMaping().get(x).size()); y++) {
+				final IElement element = model.getMapingElement(x, y);
+				if (element != null) {
+					//System.out.print(String.valueOf(model.getMapingElement(x, y).getSprite().getConsoleImage()));
+					graphics.drawImage(element.getSprite().getImage(), x*32 , y*32, 32,32, this);
+					//graphics.drawString(element.getSprite().getConsoleImage(), x*15, y*15);
+				} else {
+					graphics.drawImage(this.image, x*32, y*32, 32, 32, this);
+				}
+
+			}
+			System.out.println("");
+		}
+		System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+	}
 }
