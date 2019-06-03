@@ -49,13 +49,13 @@ public final class Model extends Observable implements IModel {
 
 	public void setMaping(final ArrayList<Position> map) {
 		this.maping.clear();
-		final int[][] onTheMap = new int[28][24];
+		final int[][] onTheMap = new int[28][25];
 		for (final Position t : map) {
 			onTheMap[t.getX()][t.getY()] = t.getid();
 		}
-		for (int x = 0 ; x < 28; x++) {
+		for (int x = 0 ; x < 27; x++) {
 			final ArrayList<IElement> ligne = new ArrayList<IElement>();
-			for ( int y = 0; y < 23; y ++) {
+			for ( int y = 0; y < 24; y ++) {
 				ligne.add(y, ElementFactory.createElement(onTheMap[x][y]));
 			}
 			this.maping.add(x,ligne);

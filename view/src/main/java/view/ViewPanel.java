@@ -49,18 +49,18 @@ class ViewPanel extends JPanel implements Observer {
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 		// graphics.drawString(this.getViewFrame().getModel().getMap().getMessage(),10, 20);
-
+		final int zoom = 35;
 		final IModel model = this.getViewFrame().getModel();
 
-		for (int x = 0; x < (model.getMaping().size()); x++) {
-			for (int y = 0; y < (model.getMaping().get(x).size()); y++) {
+		for (int x = 1; x < (model.getMaping().size()); x++) {
+			for (int y = 1; y < (model.getMaping().get(x).size()); y++) {
 				final IElement element = model.getMapingElement(x, y);
 				if (element != null) {
 					//System.out.print(String.valueOf(model.getMapingElement(x, y).getSprite().getConsoleImage()));
-					graphics.drawImage(element.getSprite().getImage(), x*32 , y*32, 32,32, this);
+					graphics.drawImage(element.getSprite().getImage(), x*zoom , y*zoom, zoom,zoom, this);
 					//graphics.drawString(element.getSprite().getConsoleImage(), x*15, y*15);
 				} else {
-					graphics.drawImage(this.image, x*32, y*32, 32, 32, this);
+					graphics.drawImage(this.image, x*zoom, y*zoom, zoom, zoom, this);
 				}
 
 			}
