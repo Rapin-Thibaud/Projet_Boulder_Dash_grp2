@@ -12,5 +12,11 @@ public class Mobile implements IMobile {
     public void getBehavior() {
 
     }
-  
+    private Boolean Penetrable(final IMobile mobile, final int x, final int y) {
+        if (mobile.getMap().getXYElement(x, y).getPermeability() == Permability.PENETRABLE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
