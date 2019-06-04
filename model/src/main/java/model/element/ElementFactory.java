@@ -1,5 +1,4 @@
 package model.element;
-
 import model.element.mobile.Diamond;
 import model.element.mobile.Ennemy;
 import model.element.mobile.Minor;
@@ -11,22 +10,22 @@ import model.element.motionless.Walls;
 public class ElementFactory {
 
 	public static Element createDiamond() {
-		return new Diamond();
+		return new Diamond(0, 0);
 
 	}
 
 	public static Element createEnnemy() {
-		return new Ennemy();
+		return new Ennemy(0, 0);
 
 	}
 
 	public static Element createMinor() {
-		return new Minor();
+		return new Minor(2, 2);
 
 	}
 
 	public static Element createRocks() {
-		return new Rocks();
+		return new Rocks(0, 0);
 
 	}
 	public static Motionless createWalls() {

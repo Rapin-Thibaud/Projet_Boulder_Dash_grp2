@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 
 import contract.IElement;
+import contract.IMinor;
 import contract.IModel;
 import entity.Position;
 import model.element.ElementFactory;
@@ -17,12 +18,12 @@ import model.element.ElementFactory;
  */
 public final class Model extends Observable implements IModel {
 
-	private final ArrayList<Position> map;
-	private final ArrayList<ArrayList<IElement>> maping;
+	public final ArrayList<Position> map;
+	public final ArrayList <IElement> maping;
 
 	public Model() {
 		this.map = new ArrayList<Position>();
-		this.maping = new ArrayList<ArrayList<IElement>>();
+		this.maping = new ArrayListArrayList<IElement>();
 	}
 
 
@@ -65,14 +66,33 @@ public final class Model extends Observable implements IModel {
 				System.out.print(this.getMapingElement(x, y)+ " ");
 			}
 			System.out.println();
+
 		}
+
 		this.setChanged();
 		this.notifyObservers();
 	}
 
+
 	@Override
 	public IElement getMapingElement(final int x, final int y) {
 		return this.maping.get(x).get(y);
+
+	}
+	public void setOnTheMapXY(final IElement element,final int x, final int y) {
+		this.map.get(x).set(y, element);
+		this.refresh();
+	}
+	@Override
+	public void refresh() {
+		this.setChanged();
+		this.notifyObservers();
+	}
+
+
+	@Override
+	public IMinor getMinor() {
+		return (IMinor)this.maping.get(2).get(2);
 	}
 
 }

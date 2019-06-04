@@ -24,5 +24,9 @@ public interface IModel {
 	IElement getMapingElement(int x, int y);
 
 	ArrayList<ArrayList<IElement>> getMaping();
+	void refresh();
+
+
+	IMinor getMinor();
 
 }

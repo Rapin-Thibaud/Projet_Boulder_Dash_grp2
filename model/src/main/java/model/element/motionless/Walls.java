@@ -1,6 +1,7 @@
 package model.element.motionless;
 
 
+
 import contract.ISprite;
 import contract.Permability;
 import model.element.Sprite;

@@ -18,5 +18,14 @@ public enum ControllerOrder {
 	/** nothing order */
 	NOTHING,
 
-	Map1
+	Map1,
+
+	MoveUp,
+
+	MoveDown,
+
+	MoveLeft,
+
+	MoveRight
+
 }

@@ -11,6 +11,7 @@ public abstract class Element implements IElement {
 	private ISprite      sprite;
 	private Permability permability;
 
+
 	public Element(final ISprite sprite, final Permability permability) {
 		this.setSprite(sprite);
 		this.setPermability(permability);
@@ -33,4 +34,5 @@ public abstract class Element implements IElement {
 	public void setSprite(final ISprite sprite) {
 		this.sprite = sprite;
 	}
+
 }
