@@ -1,5 +1,6 @@
 package model.element.mobile;
 
+
 import java.awt.event.KeyEvent;
 
 import contract.IMobile;
@@ -29,7 +30,6 @@ public class Minor extends Mobile{
 		super(sprite, permability);
 	}
 	public void toMove(final IMobile mobile) {
-
 		final int KeyPressed = 0;
 
 		switch (KeyPressed) {
@@ -72,3 +72,5 @@ public class Minor extends Mobile{
 		}
 	}
 }
+
+

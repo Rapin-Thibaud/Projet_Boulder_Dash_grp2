@@ -24,7 +24,7 @@ class ViewPanel extends JPanel implements Observer {
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
 		try {
-			this.image = ImageIO.read( new File("D:/Thomas Rapin/git/Projet_Boulder_Dash_grp2/model/SpritesCustom/wallblock.png"));
+			this.image = ImageIO.read( new File("D:/Thomas Rapin/git/Projet_Boulder_Dash_grp2/model/SpritesCustom/background.png"));
 		} catch (final IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
