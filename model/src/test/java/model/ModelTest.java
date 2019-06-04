@@ -4,50 +4,22 @@
  */
 package model;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.util.Map;
+
 import org.junit.Test;
 
 public class ModelTest {
-	private Model model;
+	Map map;
+	private final Model model = new Model();
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-		this.model = new Model();
-	}
-
-	@After
-	public void tearDown() throws Exception {
+	@Test
+	public void setPlayableMapTest() {
+		this.model.setMap(this.map);
+		assertEquals(this.map, this.model.getMap());
 	}
 
 	@Test
-	public void testGetMap() {
-		Assert.assertEquals(toto, this.model.getMap());
-	}
-
-	/**
-	 * Test method for {@link model.Model#loadObject(java.lang.String)}.
-	 */
-	@Test
-	public void testGetMessageString() {
-		this.model.loadObject("GB");
-		Assert.assertEquals("Hello world", this.model.getMap().getMessage());
-		this.model.loadObject("FR");
-		Assert.assertEquals("Bonjour le monde", this.model.getMap().getMessage());
-		this.model.loadObject("DE");
-		Assert.assertEquals("Hallo Welt", this.model.getMap().getMessage());
-		this.model.loadObject("ID");
-		Assert.assertEquals("Salamat pagi dunia", this.model.getMap().getMessage());
+	public void getIsRunningTest() {
+		assertEquals(this.map, this.model.getMap());
 	}
 }
